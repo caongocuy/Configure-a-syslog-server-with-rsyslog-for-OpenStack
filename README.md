@@ -32,7 +32,7 @@ tốt hơn được đưa ra là, tại sao không gửi các bản ghi log củ
 
 #### 2. Mô hình cài đặt
 
-![img](http://i.imgur.com/7oKIMQe.png "img")
+![img](http://i.imgur.com/fULW8v9.png "img")
 
 Mô hình có 4 node và các card mạng thiết lập như hình vẽ. Ở đây tôi đùng distro là ubuntu14.04.1 cho tất cả các node.
 
