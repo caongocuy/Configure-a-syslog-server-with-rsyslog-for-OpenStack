@@ -34,8 +34,34 @@ tốt hơn được đưa ra là, tại sao không gửi các bản ghi log củ
 
 ![img](http://i.imgur.com/7oKIMQe.png "img")
 
-Mô hình có 4 node và các card mạng thiết lập như hình vẽ.
+Mô hình có 4 node và các card mạng thiết lập như hình vẽ. Ở đây tôi đùng distro là ubuntu14.04.1 cho tất cả các node.
 
 <a name="thuchien"></a>
 
 [3. Thực hiện Lab](#thuchien)
+
+<a name="server"></a>
+
+###### a. node syslog-server
+
+- Cấu hình mở port 514 và giao thức udp, ở dòng 13 và 14 ta bỏ commend đi
+```
+vi /etc/rsyslog.conf
+```
+
+- Đặt template định đạng các thư mục và file cho các node syslog-client. Thường đặt ở cuối file *rsyslog.conf*
+
+```
+$template TmplAuth,"/var/log/%HOSTNAME%/%PROGRAMNAME%.log"
+Auth.*  ?TmplAuth
+*.*     ?TmplAuth
+& ~
+```
+
+<a name="controller"></a>
+
+###### b. node controller
+
+*Cấu hình syslog trong các project của OpenStack*
+
+- Nova
