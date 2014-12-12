@@ -65,3 +65,112 @@ Auth.*  ?TmplAuth
 *Cấu hình syslog trong các project của OpenStack*
 
 - Nova
+
+*nova.conf*
+```
+log-config=/etc/nova/logging.conf
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL0
+```
+
+- Keystone
+
+*keystone.conf*
+```
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL1
+```
+
+- Glance
+
+*glance-api.conf* và *glance-registry.conf*
+
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL1
+
+- Cinder 
+
+*cinder.conf*
+```
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL2
+```
+
+- neutron
+
+*neutron.conf*
+```
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL3
+```
+
+<a name="network"></a>
+
+###### c. node network
+
+- neutron
+
+```
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL0
+```
+
+<a name="compute"></a>
+
+###### d. node compute
+
+- neutron
+
+```
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL0
+```
+
+- nova
+
+```
+verbose = True
+debug = False
+use_syslog = True
+syslog_log_facility = LOG_LOCAL1
+```
+
+<a name="kiemtra"></a>
+
+#### 4. Kiểm tra
+
+Trước khi kiểm tra chúng ta sẽ khởi động lại dịch vụ *rsyslog* trên các node
+
+```
+service rsyslog restart
+```
+
+Trên node syslog-server kiểm tra xem đã có các thư mục tạo ra tương ứng với các hostname của các node hay chưa
+
+![img](http://i.imgur.com/LDmIem7.png "img")
+
+Thực hiện các thao tác trên dashboard đồng thời theo dõi log báo về trên *log-server*
+
+![img](http://i.imgur.com/SYPIdcS.png "img")
+
+![img](http://i.imgur.com/Vs1hGxq.png "img")
+
+![img](http://i.imgur.com/9LFc2Ld.png "img")
+
+Tài liệu tham khảo
+
+[Link syslog OpenStack](http://docs.openstack.org/admin-guide-cloud/content/section_manage-logs.html
