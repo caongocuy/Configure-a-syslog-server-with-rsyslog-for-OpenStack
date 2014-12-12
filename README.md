@@ -58,6 +58,11 @@ Auth.*  ?TmplAuth
 & ~
 ```
 
+- Thay đổi quyền truy cập của thư mục / var / log cho phép syslog khả năng tạo / thay đổi các thư mục con và các tập tin.
+```
+cd /var && sudo chown syslog:syslog log
+```
+
 <a name="controller"></a>
 
 ###### b. node controller
