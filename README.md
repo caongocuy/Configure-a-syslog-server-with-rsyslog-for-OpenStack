@@ -119,7 +119,7 @@ use_syslog = True
 syslog_log_facility = LOG_LOCAL3
 ```
 
-Bạn cũng cần cấu hình trong file *rsyslog.d/50-default.conf* để gửi log đến node log-server
+Bạn cũng cần cấu hình trong file *rsyslog.d/50-default.conf* để gửi log đến node log-server, làm tương tự với node network và compute.
 ```
 local0.info    @172.16.69.111:514
 local1.info    @172.16.69.111:514
